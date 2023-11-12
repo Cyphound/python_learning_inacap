@@ -1,7 +1,7 @@
 
 import sys
 
-sys.path.append('/Inacap/Segundo Semestre/POO/Ejercicio1/back/back1')
+sys.path.append('/Users/bayro/Desktop/Inacap/Segundo Semestre/POO/python_learning_inacap/Ejercicio1/back/back1')
 
 from modulo1 import *
 
