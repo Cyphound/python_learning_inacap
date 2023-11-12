@@ -6,7 +6,7 @@ class Persona:
         self.rut = rut
 
     def getRut(self):
-        return self.nombre
+        return self.rut
 
     def getNombre(self):
         return self.nombre

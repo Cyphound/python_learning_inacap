@@ -88,11 +88,11 @@ class Equipo:
                 eliminacion = True
 
         if eliminacion:
-            print("Jugador Eliminado", "\n")
+            return "Jugador Eliminado", "\n"
         else:
-            print("Jugador no encontrado!", "\n")
+            return "Jugador no encontrado!", "\n"
 
     def eliminarDt(self):
         self.__dirige = None
-        print("Dt Eliminado", "\n")
+        return "Dt Eliminado", "\n"
             

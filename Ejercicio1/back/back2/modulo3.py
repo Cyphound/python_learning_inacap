@@ -62,3 +62,5 @@ class Jugador(Persona):
         print("  Posición    : ", self.__posicion)
         print("  Número      : ", self.__numero)
         print("  Goles       : ", self.__goles, "\n")
+
+
