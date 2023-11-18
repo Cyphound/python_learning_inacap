@@ -1,33 +1,21 @@
-
 import sys
-
-sys.path.append('/Users/bayro/Desktop/Inacap/Segundo Semestre/POO/python_learning_inacap/Ejercicio1/back/back2')
-
+sys.path.append("/Users/bayro/Desktop/ejercicio1/back/back2")
 from modulo2 import *
 
-e1 = Equipo("Eq-008", "Deportes Iquique", 10)
+e = Equipo("EQ1","Boca Juniors",2)
+e.verEquipo()
 
-e1.verEquipo()
 
-## Se crean los objetos Dt y Jugador para agregarlos al equipo
-dt1 = Dt("15-8", "Brayan Calderon", 45, "Ingeniero", 80)
-j1 = Jugador("7-9", "Pablo Parra", 25, "Delantero", 10, 5)
+j = Jugador("14-4","Carlos Tévez",30,"Delantero",11,26)
+j.verJugador()
 
-e1.agregarDt2(dt1)
+dt = Dt("11-2","Filipo",50,"Ex-jugador",75)
+dt.verDt() 
 
-e1.verEquipo() ## Se imprime el equipo con los Dt pero sin jugadores
-
-## Se usan los metodos para agregar un jugador en parametros y otro con el objeto
-e1.agregarJugador1("13-1", "Juan Lopez", 21, "Defensa", 5, 1)
-e1.agregarJugador2(j1)
-e1.agregarJugador1("14-6", "Santiago Araya", 23, "Mediocampista", 12, 7)
-
-e1.verEquipo() ## Se imprime el equipo con Dt y jugadores
-
-e1.eliminarJugador("14-6")
-
-e1.verEquipo()
-
-e1.eliminarDt()
-
-e1.verEquipo()
+e.agregarDt2(dt)
+e.agregarJugador1(j)
+e.agregarJugador1(Jugador("14-3","Emiliano Martínez",30,"Arquero",1,30))
+e.agregarJugador1(Jugador("11-5","Virgil Van Djyk",30,"Defensa",1,30))
+e.verEquipo()
+print(e.eliminarJugador("14-3"))
+e.verEquipo()

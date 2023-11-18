@@ -1,9 +1,7 @@
-
 import sys
+sys.path.append("/Users/bayro/Desktop/Inacap/Segundo Semestre/POO/python_learning_inacap/Ejercicio1/back/back1")
+from modulo1 import Persona
 
-sys.path.append('/Users/bayro/Desktop/Inacap/Segundo Semestre/POO/python_learning_inacap/Ejercicio1/back/back1')
-
-from modulo1 import *
 
 class Dt(Persona):
     def __init__(self, rut, nombre, edad, titulo, rendimiento):
@@ -13,7 +11,7 @@ class Dt(Persona):
 
     def getTitulo(self):
         return self.__titulo
-
+    
     def getRendimiento(self):
         return self.__rendimiento
 
@@ -25,18 +23,16 @@ class Dt(Persona):
 
     def verDt(self):
         self.verPersona()
-        print("  Rendimiento : ", self.__rendimiento, "%")
-        print("  Titulo      : ", self.__titulo, "\n")
-
+        print("    Rendimiento : ",self.__rendimiento,"%")
+        print("    Titulo      : ",self.__titulo,"\n")
+       
 class Jugador(Persona):
-    ## Se agregan los atributos acorde al diagrama mostrado
     def __init__(self, rut, nombre, edad, posicion, numero, goles):
         super().__init__(rut, nombre, edad)
         self.__posicion = posicion
         self.__numero = numero
         self.__goles = goles
 
-    ## Getters
     def getPosicion(self):
         return self.__posicion
 
@@ -46,21 +42,23 @@ class Jugador(Persona):
     def getGoles(self):
         return self.__goles
 
-    ## Setters
-    def setPosicion(self, posicion):
-        self.__posicion = posicion
+    def setPosicion(self, nuevaPosicion):
+        self.__posicion = nuevaPosicion
 
-    def setNumero(self, numero):
-        self.__numero = numero
+    def setNumero(self, nuevoNumero):
+        self.__numero = nuevoNumero
 
-    def setGoles(self, goles):
-        self.__goles = goles
+    def setGoles(self, nuevosGoles):
+        self.__goles = nuevosGoles
 
-    ## Método para ver los datos del jugador heredando el método verPersona
     def verJugador(self):
         self.verPersona()
-        print("  Posición    : ", self.__posicion)
-        print("  Número      : ", self.__numero)
-        print("  Goles       : ", self.__goles, "\n")
+        print("    Posición : ",self.__posicion)
+        print("    Número   : ",self.__numero)
+        print("    Goles    : ",self.__goles,"\n")
+
+    
+
+
 
 

@@ -1,13 +1,11 @@
-
 from modulo3 import *
-
 class Equipo:
     def __init__(self, id, nombre, rank):
         self.__id = id
         self.__nombre = nombre
         self.__rank = rank
         self.__dirige = None
-        self.__jugadores = None ## Se agrega el atributo jugadores
+        self.__plantel = []
 
     def getId(self):
         return self.__id
@@ -20,19 +18,19 @@ class Equipo:
 
     def getDirige(self):
         return self.__dirige
+    
+    def getPlantel(self):
+        return self.__plantel
 
-    def getJugadores(self): ## Get de jugadores
-        return self.__jugadores
+    def setPlantel(self, plantel):
+        self.__plantel = plantel
 
     def setDirige(self, dirige):
         self.__dirige = dirige
 
-    def setJugadores(self, jugadores): ## Set de jugadores
-        self.__jugadores = jugadores
-
     def setId(self, id):
         self.__id = id
-
+    
     def setRank(self, rank):
         self.__rank = rank
 
@@ -40,59 +38,51 @@ class Equipo:
         self.__nombre = nombre
 
     def verEquipo(self):
-        print("Id      : ", self.__id)
-        print("Nombre  : ", self.__nombre)
-        print("Ranking : ", self.__rank)
-        if (self.__dirige == None):
+        print("Id      : ",self.__id)
+        print("Nombre  : ",self.__nombre)
+        print("Ranking : ",self.__rank)
+        if(self.__dirige == None):
             print("Equipo sin Dt aún!")
         else:
             print("Técnico : ")
             self.__dirige.verDt()
-        ## Si no hay jugadores, se imprime un "Error"
-        if (self.__jugadores == None):
-            print("Equipo sin jugadores aún!", "\n")
-            ## Agrege un salto de linea para que se vea mejor la impresion
+        if(len(self.__plantel) == 0):
+            print("No hay jugadores aún")
         else:
-            ## Si hay jugadores, se imprimen mediante un for que recorre la lista
-            print("Jugadores : ")
-            for i in self.__jugadores:
-                i.verJugador()
+            print("Plantel : ")
+            for i in range(len(self.__plantel)):
+                self.__plantel[i].verJugador()
+        print("")
 
+    
     def agregarDt1(self, rut, nombre, edad, titulo, rendimiento):
         self.__dirige = Dt(rut, nombre, edad, titulo, rendimiento)
-
+    
     def agregarDt2(self, dt):
         self.__dirige = dt
-
-    ## Metodo 1 para agregar jugadores, se crea el objeto jugador en el mismo metodo
-    def agregarJugador1(self, rut, nombre, edad, posicion, numero, goles):
-        if self.__jugadores == None:
-            self.__jugadores = []
-        jugador = Jugador(rut, nombre, edad, posicion, numero, goles)
-
-        self.__jugadores.append(jugador)
-
-    ## Metodo 2 para agregar jugadores, se recibe el objeto jugador como parametro
-    def agregarJugador2(self, jugador):
-        if self.__jugadores == None:
-            self.__jugadores = []
-        self.__jugadores.append(jugador)
+    
+    def agregarJugador1(self, jugador):
+        self.__plantel.append(jugador)
+    
+    def agregarJugador2(self, rut, nombre, edad, posicion, numero, goles):
+        self.__plantel.append(Jugador(rut, nombre, edad, posicion, numero, goles))
 
     def eliminarJugador(self, rut):
-        
-        eliminacion = False
-
-        for i in range(len(self.__jugadores)):
-            if rut == self.__jugadores[i].rut:
-                self.__jugadores.pop(i)
-                eliminacion = True
-
-        if eliminacion:
-            return "Jugador Eliminado", "\n"
-        else:
-            return "Jugador no encontrado!", "\n"
+        inElim = -1
+        msg = "Jugador no existe en el equipo!"
+        for i in range(len(self.__plantel)):
+            if self.__plantel[i].getRut() == rut:
+                inElim = i
+                break
+        if inElim  != -1:
+            self.__plantel.pop(inElim)
+            msg = "Jugador eliminado correctamente!"                
+        return msg
 
     def eliminarDt(self):
         self.__dirige = None
-        return "Dt Eliminado", "\n"
-            
+        
+
+
+        
+
