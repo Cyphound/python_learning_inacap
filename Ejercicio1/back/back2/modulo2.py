@@ -81,6 +81,32 @@ class Equipo:
 
     def eliminarDt(self):
         self.__dirige = None
+
+    def calcularPromedio(self):
+        acum = 0
+        
+        for jugador in range(len(self.__plantel)):
+            acum += jugador.getEdad()
+
+        promedio = acum / len(self.__plantel)
+
+        return promedio
+    
+    def cambiarEquipo(self, rut):
+        a = -1
+        for jugador in range(self.__plantel):
+            if jugador.getRut() == rut:
+                cambio = jugador.pop(jugador)
+                a = 1
+                break      
+
+        if a == -1:
+            print("El jugador no existe")
+        else:
+            return cambio
+            
+
+            
         
 
 

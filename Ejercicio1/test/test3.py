@@ -130,6 +130,31 @@ class interfaz:
         else:
             print(msg)
 
+    def calcularPromedio(self):
+        system("cls")
+        id = input("")
+        eqAgr = self.buscarEquipo(id)
+        msg = ""
+        if eqAgr != -1:
+            print("Equipo : ",self.__control.getListaEquipos()[eqAgr].getNombre(),"\n")
+            msg = "El promedio de edades es: " + str(self.__control.promedioEquipoControl(eqAgr))
+
+        return msg
+    
+    def cambiarJugadorEquipo(self):
+        system("cls")
+        id1 = input("Ingrese el Id del Equipo Origen : ")
+        id2 = input("Ingrese el Id del Equipo Destino : ")
+        eqAgr1 = self.buscarEquipo(id1)
+        eqAgr2 = self.buscarEquipo(id2)
+        msg = "El equipo no existe!"
+        if eqAgr1  != -1 and eqAgr2 != -1:
+            #print("Equipo : ",self.__control.getListaEquipos()[eqAgr].getNombre(),"\n")
+            rut = input("Ingrese el Rut del Jugador : ")
+            self.__control.cambiarControl(eqAgr1, eqAgr2, rut)
+            msg = "Jugador eliminado correctamente!"
+        return msg
+
     def cargar(self):
         sigue = True
         while(sigue):

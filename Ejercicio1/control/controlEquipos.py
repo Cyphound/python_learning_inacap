@@ -51,3 +51,11 @@ class GestorEquipos:
     def verJugadoresEquipos(self,indice):
         for jugador in self.__listaEquipos[indice].getPlantel():
             jugador.verJugador()
+
+    def promedioEquipoControl(self, indice):
+        prom = self.__listaEquipos[indice].calcularPromedio()
+
+        return prom
+    
+    def cambioControl(self, origen, destino, rut):
+        self.__listaEquipos[destino].agregarJugador1(self.__listaEquipos[origen].cambiarEquipo(rut))
